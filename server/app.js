@@ -5,7 +5,10 @@ import logger from 'morgan';
 import ChatGPTClient from './chatgpt/ChatGPTClient';
 
 import indexRouter from './routes/index';
-import chatRouter from './routes/chat';
+
+import gptChatRouter from './routes/gpt/chat';
+import gptConfigRouter from './routes/gpt/config';
+
 import { GPT_KEY } from './config';
 
 const app = express();
@@ -17,7 +20,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', indexRouter);
-app.use('/chat', chatRouter);
+app.use('/gpt/chat', gptChatRouter);
+app.use('/gpt/config', gptConfigRouter);
 
 global.gptClient = new ChatGPTClient(GPT_KEY);
 
