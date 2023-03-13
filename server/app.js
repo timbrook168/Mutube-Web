@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import ChatGPTClientV1 from './chatgpt/ChatGPTClientV1';
+import ChatGPTClient from './chatgpt/ChatGPTClient';
 
 import indexRouter from './routes/index';
 
@@ -23,6 +23,6 @@ app.use('/', indexRouter);
 app.use('/gpt/chat', gptChatRouter);
 app.use('/gpt/config', gptConfigRouter);
 
-global.gptClient = new ChatGPTClientV1(GPT_KEY);
+global.gptClient = new ChatGPTClient(GPT_KEY);
 
 export default app;

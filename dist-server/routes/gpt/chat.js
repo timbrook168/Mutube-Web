@@ -40,17 +40,18 @@ router.post('/', /*#__PURE__*/function () {
           });
           return _context.abrupt("return");
         case 9:
-          _context.next = 13;
+          _context.next = 14;
           break;
         case 11:
           _context.prev = 11;
           _context.t0 = _context["catch"](0);
-        case 13:
+          console.error(_context.t0);
+        case 14:
           res.send({
             code: -1,
             data: {}
           });
-        case 14:
+        case 15:
         case "end":
           return _context.stop();
       }

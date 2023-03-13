@@ -18,7 +18,8 @@ router.post('/', async function (req, res, next) {
                 return;
             }
         }
-    } catch {
+    } catch (e) {
+        // console.error(e)
     }
     res.send({
         code: -1,

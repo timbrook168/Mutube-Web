@@ -4,6 +4,7 @@ import { encoding_for_model as encodingForModel, get_encoding as getEncoding } f
 import { fetchEventSource } from '@waylaidwanderer/fetch-event-source';
 import fetch from "node-fetch";
 import { Agent, ProxyAgent } from 'undici';
+import { AbortController } from "node-abort-controller";
 
 const CHATGPT_MODEL = 'gpt-3.5-turbo';
 

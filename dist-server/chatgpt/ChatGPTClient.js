@@ -10,6 +10,7 @@ var _tiktoken = require("@dqbd/tiktoken");
 var _fetchEventSource = require("@waylaidwanderer/fetch-event-source");
 var _nodeFetch = _interopRequireDefault(require("node-fetch"));
 var _undici = require("undici");
+var _nodeAbortController = require("node-abort-controller");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -144,7 +145,7 @@ var ChatGPTClient = /*#__PURE__*/function () {
             case 0:
               abortController = _args3.length > 2 && _args3[2] !== undefined ? _args3[2] : null;
               if (!abortController) {
-                abortController = new AbortController();
+                abortController = new _nodeAbortController.AbortController();
               }
               modelOptions = _objectSpread({}, this.modelOptions);
               modelOptions.stream = typeof onProgress === 'function';
@@ -440,13 +441,13 @@ var ChatGPTClient = /*#__PURE__*/function () {
                 }
                 opts.onProgress(token);
                 reply += token;
-              }, opts.abortController || new AbortController());
+              }, opts.abortController || new _nodeAbortController.AbortController());
             case 26:
               _context5.next = 33;
               break;
             case 28:
               _context5.next = 30;
-              return this.getCompletion(payload, null, opts.abortController || new AbortController());
+              return this.getCompletion(payload, null, opts.abortController || new _nodeAbortController.AbortController());
             case 30:
               result = _context5.sent;
               if (this.options.debug) {

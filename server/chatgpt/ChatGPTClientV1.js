@@ -3,6 +3,7 @@ import Keyv from 'keyv';
 import { encode as gptEncode } from 'gpt-3-encoder';
 import { fetchEventSource } from '@waylaidwanderer/fetch-event-source';
 import fetch from "node-fetch";
+import { AbortController } from "node-abort-controller";
 
 const CHATGPT_MODEL = 'text-davinci-003';
 
